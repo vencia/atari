@@ -110,8 +110,8 @@ class DDQNTrainer(DDQNGameModel):
 
         if total_step % TARGET_NETWORK_UPDATE_FREQUENCY == 0:
             self._reset_target_network()
-            print('{{"metric": "epsilon", "value": {}}}'.format(self.epsilon))
-            print('{{"metric": "total_step", "value": {}}}'.format(total_step))
+            print(('{{"metric": "epsilon", "value": {}}}'.format(self.epsilon)))
+            print(('{{"metric": "total_step", "value": {}}}'.format(total_step)))
 
     def _train(self):
         batch = np.asarray(random.sample(self.memory, BATCH_SIZE))

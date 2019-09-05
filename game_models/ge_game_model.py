@@ -73,14 +73,14 @@ class GETrainer(GEGameModel):
         pass
 
     def genetic_evolution(self, env):
-        print "population_size: " + str(self.population_size) +\
+        print("population_size: " + str(self.population_size) +\
               ", mutation_rate: " + str(self.mutation_rate) +\
               ", selection_rate: " + str(self.selection_rate) +\
-              ", random_weight_range: " + str(self.random_weight_range)
+              ", random_weight_range: " + str(self.random_weight_range))
         population = None
 
         while True:
-            print('{{"metric": "generation", "value": {}}}'.format(self.generation))
+            print(('{{"metric": "generation", "value": {}}}'.format(self.generation)))
 
             # 1. Selection
             parents = self._strongest_parents(population, env)
@@ -139,10 +139,10 @@ class GETrainer(GEGameModel):
         scores_for_chromosomes.sort(key=lambda x: x[1])
         top_performers = scores_for_chromosomes[-self.parents:]
         top_scores = [x[1] for x in top_performers]
-        print('{{"metric": "population", "value": {}}}'.format(mean([x[1] for x in scores_for_chromosomes])))
-        print('{{"metric": "top_min", "value": {}}}'.format(min(top_scores)))
-        print('{{"metric": "top_avg", "value": {}}}'.format(mean(top_scores)))
-        print('{{"metric": "top_max", "value": {}}}'.format(max(top_scores)))
+        print(('{{"metric": "population", "value": {}}}'.format(mean([x[1] for x in scores_for_chromosomes]))))
+        print(('{{"metric": "top_min", "value": {}}}'.format(min(top_scores))))
+        print(('{{"metric": "top_avg", "value": {}}}'.format(mean(top_scores))))
+        print(('{{"metric": "top_max", "value": {}}}'.format(max(top_scores))))
         return top_performers
 
     def _mutation(self, base_offsprings):
